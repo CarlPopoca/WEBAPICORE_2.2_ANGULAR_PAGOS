@@ -1,0 +1,15 @@
+******Proyecto Angular que consumira la WEBAPI Pagos*******************
+
+1.-Abra un cmd y dirijase a la carpeta contenedora del proyecto de Angular y de la WEB API de Pagos, y ejecute los
+siguientes comandos para crear el proyecto:
+
+	ng new WEBANGULARPAGOS
+	
+2.-Para la pregunta Would you like to add Angular routing? escriba N
+	
+3.-Enfoque sobre la palabra CSS(debe estar en color) y presione Enter
+
+		
+
+
+

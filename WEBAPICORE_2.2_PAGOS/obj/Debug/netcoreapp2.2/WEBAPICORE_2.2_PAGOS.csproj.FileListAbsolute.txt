@@ -1,0 +1,14 @@
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\bin\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.deps.json
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\bin\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.runtimeconfig.json
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\bin\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.runtimeconfig.dev.json
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\bin\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.dll
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.csprojAssemblyReference.cache
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.csproj.CoreCompileInputs.cache
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.RazorAssemblyInfo.cache
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.RazorAssemblyInfo.cs
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.AssemblyInfoInputs.cache
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.AssemblyInfo.cs
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.RazorTargetAssemblyInfo.cache
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\bin\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.pdb
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.dll
+C:\PROYECTOS\VisualStudioNET\WEBAPICORE_2.2_PAGOS\obj\Debug\netcoreapp2.2\WEBAPICORE_2.2_PAGOS.pdb
