@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\pago-detalles",
+    "\\src\\app\\pago-detalles\\pago-detalle",
+    "\\src\\app\\pago-detalles\\pago-detalle-lista",
+    "\\src\\app\\shared"
+  ],
+  "SelectedNode": "\\src\\app\\shared\\pago-detalle.model.ts",
+  "PreviewInSolutionExplorer": false
+}

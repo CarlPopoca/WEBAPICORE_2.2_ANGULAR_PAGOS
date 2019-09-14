@@ -7,8 +7,8 @@
 3.- Ir a Herramientas >Administrador de Paquetes Nuget y dar clic en la opción Administrar paquetes Nuget para la Solución.
 	a)De clic en Examinar y escriba Microsoft.EntityFrameworkCore, seleccione la ultima versión estable  y de clic en el botón Install.
 
-4.- Agregue la clase PagosDetalle dentro de la Carpeta y anexe lo siguiente:
-	public class PagosDetalle
+4.- Agregue la clase PagoDetalle dentro de la Carpeta y anexe lo siguiente:
+	public class PagoDetalle
 	    {
         	[Key]
 	        public int Id { get; set; }
@@ -36,7 +36,7 @@
         public PagosDBContext(DbContextOptions<PagosDBContext> options) : base(options)
         {
         }
-        public DbSet<PagosDetalle> PagosDetalles { get; set; }
+        public DbSet<PagoDetalle> PagoDetalle { get; set; }
 
     }
 5.- En el archivo appsettings.json agregue lo siguiente para la cadena de Conexión.
@@ -77,27 +77,27 @@ comandos para hacer la migración de las clases a la Base de Datos.
 	
     [Route("api/[controller]")]
     [ApiController]
-    public class PagosDetalleController : ControllerBase
+    public class PagoDetalleController : ControllerBase
     {
         private readonly PagosDBContext _context;
 
-        public PagosDetalleController(PagosDBContext context)
+        public PagoDetalleController(PagosDBContext context)
         {
             _context = context;
         }
 
         // GET: api/PagosDetalle
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PagosDetalle>>> GetPagosDetalles()
+        public async Task<ActionResult<IEnumerable<PagoDetalle>>> GetPagosDetalles()
         {
-            return await _context.PagosDetalles.ToListAsync();
+            return await _context.PagoDetalle.ToListAsync();
         }
 
         // GET: api/PagosDetalle/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PagosDetalle>> GetPagosDetalle(int id)
+        public async Task<ActionResult<PagoDetalle>> GetPagosDetalle(int id)
         {
-            var pagosDetalle = await _context.PagosDetalles.FindAsync(id);
+            var pagosDetalle = await _context.PagoDetalle.FindAsync(id);
 
             if (pagosDetalle == null)
             {
@@ -109,7 +109,7 @@ comandos para hacer la migración de las clases a la Base de Datos.
 
         // PUT: api/PagosDetalle/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPagosDetalle(int id, PagosDetalle pagosDetalle)
+        public async Task<IActionResult> PutPagosDetalle(int id, PagoDetalle pagosDetalle)
         {
             if (id != pagosDetalle.Id)
             {
@@ -139,9 +139,9 @@ comandos para hacer la migración de las clases a la Base de Datos.
 
         // POST: api/PagosDetalle
         [HttpPost]
-        public async Task<ActionResult<PagosDetalle>> PostPagosDetalle(PagosDetalle pagosDetalle)
+        public async Task<ActionResult<PagoDetalle>> PostPagosDetalle(PagoDetalle pagosDetalle)
         {
-            _context.PagosDetalles.Add(pagosDetalle);
+            _context.PagoDetalle.Add(pagosDetalle);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPagosDetalle", new { id = pagosDetalle.Id }, pagosDetalle);
@@ -149,15 +149,15 @@ comandos para hacer la migración de las clases a la Base de Datos.
 
         // DELETE: api/PagosDetalle/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<PagosDetalle>> DeletePagosDetalle(int id)
+        public async Task<ActionResult<PagoDetalle>> DeletePagosDetalle(int id)
         {
-            var pagosDetalle = await _context.PagosDetalles.FindAsync(id);
+            var pagosDetalle = await _context.PagoDetalle.FindAsync(id);
             if (pagosDetalle == null)
             {
                 return NotFound();
             }
 
-            _context.PagosDetalles.Remove(pagosDetalle);
+            _context.PagoDetalle.Remove(pagosDetalle);
             await _context.SaveChangesAsync();
 
             return pagosDetalle;
@@ -165,6 +165,6 @@ comandos para hacer la migración de las clases a la Base de Datos.
 
         private bool PagosDetalleExists(int id)
         {
-            return _context.PagosDetalles.Any(e => e.Id == id);
+            return _context.PagoDetalle.Any(e => e.Id == id);
         }
     }

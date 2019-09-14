@@ -8,7 +8,7 @@ namespace WEBAPICORE_2._2_PAGOS.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "PagosDetalles",
+                name: "PagoDetalle",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -20,14 +20,14 @@ namespace WEBAPICORE_2._2_PAGOS.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PagosDetalles", x => x.Id);
+                    table.PrimaryKey("PK_PagoDetalle", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PagosDetalles");
+                name: "PagoDetalle");
         }
     }
 }

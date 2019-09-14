@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WEBAPICORE_2._2_PAGOS.Models
 {
-    public class PagosDetalle
+    public class PagoDetalle
     {
         [Key]
         public int Id { get; set; }

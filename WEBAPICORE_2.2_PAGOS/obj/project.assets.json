@@ -12944,11 +12944,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PROYECTOS\\VisualStudioNET\\WEBAPICORE_2.2_PAGOS\\WEBAPICORE_2.2_PAGOS.csproj",
+      "projectUniqueName": "C:\\PROYECTOS\\VisualStudioNET\\WEBAPICORE_2.2_ANGULAR_PAGOS\\WEBAPICORE_2.2_PAGOS\\WEBAPICORE_2.2_PAGOS.csproj",
       "projectName": "WEBAPICORE_2.2_PAGOS",
-      "projectPath": "C:\\PROYECTOS\\VisualStudioNET\\WEBAPICORE_2.2_PAGOS\\WEBAPICORE_2.2_PAGOS.csproj",
+      "projectPath": "C:\\PROYECTOS\\VisualStudioNET\\WEBAPICORE_2.2_ANGULAR_PAGOS\\WEBAPICORE_2.2_PAGOS\\WEBAPICORE_2.2_PAGOS.csproj",
       "packagesPath": "C:\\Users\\Praxis\\.nuget\\packages\\",
-      "outputPath": "C:\\PROYECTOS\\VisualStudioNET\\WEBAPICORE_2.2_PAGOS\\obj\\",
+      "outputPath": "C:\\PROYECTOS\\VisualStudioNET\\WEBAPICORE_2.2_ANGULAR_PAGOS\\WEBAPICORE_2.2_PAGOS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

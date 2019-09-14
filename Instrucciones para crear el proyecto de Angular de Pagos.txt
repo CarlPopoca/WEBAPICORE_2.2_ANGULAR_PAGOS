@@ -9,8 +9,78 @@ siguientes comandos para crear el proyecto:
 	
 3.-Enfoque sobre la palabra CSS(debe estar en color) y presione Enter
 
+4.-Abra el proyecto con Visual Studio y seleccione la carpeta que tiene el código
+
+5.- Abra un CMD, posicionese en la carpeta del codigo y ejecute el siguiente comando para desplegar la aplicación en un 
+	Navegador:
+
+	ng serve --o
+6.- Entre a la URL https://getbootstrap.com/ y de clic en GET STARTED para copiar los estilos CSS, y peguele dentro del head del Index.html del proyecto:
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	Nota: Es el que se copio para el proyecto pero puede cambiar la versión, se recomienda seguir este paso
+7.-Entre a la URL  https://getbootstrap.com/ y de clic en GET STARTED para copiar las refrencias de Javascript JS y peguela dentro de body del Index.html del proyecto:
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+8.- Ir a la pagina https://fontawesome.com/, dar clic en Start for Free, registrarse con un correo, confirmar y copiar la url:
+
+	<script src="https://kit.fontawesome.com/0b95cc6071.js"></script>
+	Nota:Puede variar según la versión que manejen, se recomienda seguir este paso.
+
+9.- Abra un CMD, posicionese en la ruta del proyecto y ejecute los siguientes comandos para crear las rutas de los componentes que contendran el código del CRUD:
+
+	Para generar el componente principal:
+	
+		ng g c pago-detalles
+		Nota: Elimine los archivos pagos-detalles.component.css y pagos-detalles.component.spec.ts
+
+	Para generar de detalle del componente:
+	
+		ng g c pago-detalles/pago-detalle
+		Nota: Elimine los archivos pago-detalle.component.css y pago-detalle.component.spec.ts
+
+	Para generar el componente que mostrara la lista de pagos:
+
+		ng g c pago-detalles/pago-detalle-lista
+		Nota: Elimine los archivos pago-detalle-lista.component.css y pago-detalle-lista.component.spec.ts
+
+	Para generar el servicio:
+
+		ng g s shared/pago-detalle
+		Nota: Elimine el archivo pagos-detalle.service.spec.ts
+
+	Para generar el Model:
+		
+		ng g cl shared/pago-detalle --type=model
+		Nota: Elimine el archivo pagos-detalle.model.spec.ts
+
+10.-Elimine el archivo app.component.css y app.component.spec.ts porque no se necesitan.
+
+11.-Modifique el archivo app.component.ts y modifique styles:[], quedara el contenido de la siguiente manera:
+
+	import { Component } from '@angular/core';
+
+
+	@Component({
+  selector: 'app-root',
+  
+			templateUrl: './app.component.html',
+ 
+			 styleUrls: []
+})
+
+	export class AppComponent {
+  title = 'WEBANGULARPAGOS';
+}
+
+
 
 		
+12.-Agregue los atributos de la Clase PagosDetalle en el archivo pago-detalle.model de la siguiente manera:
 
+	
 
 

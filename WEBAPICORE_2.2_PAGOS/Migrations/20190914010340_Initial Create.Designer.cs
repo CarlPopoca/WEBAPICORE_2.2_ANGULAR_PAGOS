@@ -9,7 +9,7 @@ using WEBAPICORE_2._2_PAGOS.Models;
 namespace WEBAPICORE_2._2_PAGOS.Migrations
 {
     [DbContext(typeof(PagosDBContext))]
-    [Migration("20190912022627_InitialCreate")]
+    [Migration("20190914010340_Initial Create")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,7 +20,7 @@ namespace WEBAPICORE_2._2_PAGOS.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WEBAPICORE_2._2_PAGOS.Models.PagosDetalle", b =>
+            modelBuilder.Entity("WEBAPICORE_2._2_PAGOS.Models.PagoDetalle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,7 +44,7 @@ namespace WEBAPICORE_2._2_PAGOS.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PagosDetalles");
+                    b.ToTable("PagoDetalle");
                 });
 #pragma warning restore 612, 618
         }

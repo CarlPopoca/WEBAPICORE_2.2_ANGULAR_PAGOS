@@ -11,27 +11,27 @@ namespace WEBAPICORE_2._2_PAGOS.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PagosDetalleController : ControllerBase
+    public class PagoDetalleController : ControllerBase
     {
         private readonly PagosDBContext _context;
 
-        public PagosDetalleController(PagosDBContext context)
+        public PagoDetalleController(PagosDBContext context)
         {
             _context = context;
         }
 
         // GET: api/PagosDetalle
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PagosDetalle>>> GetPagosDetalles()
+        public async Task<ActionResult<IEnumerable<PagoDetalle>>> GetPagosDetalles()
         {
-            return await _context.PagosDetalles.ToListAsync();
+            return await _context.PagoDetalle.ToListAsync();
         }
 
         // GET: api/PagosDetalle/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PagosDetalle>> GetPagosDetalle(int id)
+        public async Task<ActionResult<PagoDetalle>> GetPagosDetalle(int id)
         {
-            var pagosDetalle = await _context.PagosDetalles.FindAsync(id);
+            var pagosDetalle = await _context.PagoDetalle.FindAsync(id);
 
             if (pagosDetalle == null)
             {
@@ -43,7 +43,7 @@ namespace WEBAPICORE_2._2_PAGOS.Controllers
 
         // PUT: api/PagosDetalle/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPagosDetalle(int id, PagosDetalle pagosDetalle)
+        public async Task<IActionResult> PutPagosDetalle(int id, PagoDetalle pagosDetalle)
         {
             if (id != pagosDetalle.Id)
             {
@@ -73,9 +73,9 @@ namespace WEBAPICORE_2._2_PAGOS.Controllers
 
         // POST: api/PagosDetalle
         [HttpPost]
-        public async Task<ActionResult<PagosDetalle>> PostPagosDetalle(PagosDetalle pagosDetalle)
+        public async Task<ActionResult<PagoDetalle>> PostPagosDetalle(PagoDetalle pagosDetalle)
         {
-            _context.PagosDetalles.Add(pagosDetalle);
+            _context.PagoDetalle.Add(pagosDetalle);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPagosDetalle", new { id = pagosDetalle.Id }, pagosDetalle);
@@ -83,15 +83,15 @@ namespace WEBAPICORE_2._2_PAGOS.Controllers
 
         // DELETE: api/PagosDetalle/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<PagosDetalle>> DeletePagosDetalle(int id)
+        public async Task<ActionResult<PagoDetalle>> DeletePagosDetalle(int id)
         {
-            var pagosDetalle = await _context.PagosDetalles.FindAsync(id);
+            var pagosDetalle = await _context.PagoDetalle.FindAsync(id);
             if (pagosDetalle == null)
             {
                 return NotFound();
             }
 
-            _context.PagosDetalles.Remove(pagosDetalle);
+            _context.PagoDetalle.Remove(pagosDetalle);
             await _context.SaveChangesAsync();
 
             return pagosDetalle;
@@ -99,7 +99,7 @@ namespace WEBAPICORE_2._2_PAGOS.Controllers
 
         private bool PagosDetalleExists(int id)
         {
-            return _context.PagosDetalles.Any(e => e.Id == id);
+            return _context.PagoDetalle.Any(e => e.Id == id);
         }
     }
 }

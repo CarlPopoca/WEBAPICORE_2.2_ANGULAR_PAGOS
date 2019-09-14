@@ -18,7 +18,7 @@ namespace WEBAPICORE_2._2_PAGOS.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WEBAPICORE_2._2_PAGOS.Models.PagosDetalle", b =>
+            modelBuilder.Entity("WEBAPICORE_2._2_PAGOS.Models.PagoDetalle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace WEBAPICORE_2._2_PAGOS.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PagosDetalles");
+                    b.ToTable("PagoDetalle");
                 });
 #pragma warning restore 612, 618
         }

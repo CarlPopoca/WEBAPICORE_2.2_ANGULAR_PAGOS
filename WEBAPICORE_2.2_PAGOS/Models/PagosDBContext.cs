@@ -12,7 +12,7 @@ namespace WEBAPICORE_2._2_PAGOS.Models
         public PagosDBContext(DbContextOptions<PagosDBContext> options) : base(options)
         {
         }
-        public DbSet<PagosDetalle> PagosDetalles { get; set; }
+        public DbSet<PagoDetalle> PagoDetalle { get; set; }
 
     }
 }
