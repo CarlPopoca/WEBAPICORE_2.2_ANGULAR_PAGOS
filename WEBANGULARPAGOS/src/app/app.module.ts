@@ -8,6 +8,9 @@ import { PagoDetalleListaComponent } from './pago-detalles/pago-detalle-lista/pa
 import { PagoDetalleService } from './shared/pago-detalle.service';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+//Se copiaron de la URL https://www.npmjs.com/package/ngx-toastr
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [PagoDetalleService],
   bootstrap: [AppComponent]

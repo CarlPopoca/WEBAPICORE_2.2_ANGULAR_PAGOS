@@ -1,1 +1,7 @@
-<p>pago-detalle-lista works!</p>
+<table class="table table-hover">
+  <tr *ngFor="let pd of service.list">
+    <td>{{pd.PropietarioTarjeta}}</td>
+    <td>{{pd.NumeroTarjeta}}</td>
+    <td>{{pd.FechaExpiracion}}</td>
+  </tr>
+</table>

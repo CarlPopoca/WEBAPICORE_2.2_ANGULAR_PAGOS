@@ -76,11 +76,8 @@ siguientes comandos para crear el proyecto:
   title = 'WEBANGULARPAGOS';
 }
 
-
-
 		
 12.-Agregue los atributos de la Clase PagosDetalle en el archivo pago-detalle.model, quedara de la siguiente manera:
-
 	
 	export class PagoDetalle {
   
@@ -95,3 +92,29 @@ siguientes comandos para crear el proyecto:
 	}
 
 
+13.-Entre a la URL https://www.npmjs.com y realice los siguientes pasos:
+
+	a)En el buscador introduzca ngx-toastr y pulse el botón buscar
+	b)De clic ngx-toastr y copie el comando de la sección de Install
+		npm install ngx-toastr --save
+	c)En un cmd posicionese en la url del proyecto de Angular y ejecute el comando copiado
+
+14.- Vaya a la URL https://www.npmjs.com/package/ngx-toastr y siga los siguientes pasos:
+	
+	a)Del paso 2 copie los imports de ngx-toastr y angular/platform-browser/animations:
+		import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+		import { ToastrModule } from 'ngx-toastr';		
+	b)Peguelos en el archivo app.module.ts debajo de las importaciones de librerias
+	c)En la sección de Imports añada lo siguiente:
+		  imports: [
+    			BrowserModule,
+   			FormsModule,
+    			HttpClientModule,
+    			BrowserAnimationsModule,
+    			ToastrModule.forRoot()
+  			]
+	d)Del paso 1 copie los estilos del toastr:
+		 "node_modules/ngx-toastr/toastr.css"
+	e) Peguele la ruta de estilos en el archivo Angular.json en la sección styles, quedara de la siguiente forma:
+		
+	
