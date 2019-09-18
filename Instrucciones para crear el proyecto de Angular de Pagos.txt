@@ -79,8 +79,19 @@ siguientes comandos para crear el proyecto:
 
 
 		
-12.-Agregue los atributos de la Clase PagosDetalle en el archivo pago-detalle.model de la siguiente manera:
+12.-Agregue los atributos de la Clase PagosDetalle en el archivo pago-detalle.model, quedara de la siguiente manera:
 
 	
+	export class PagoDetalle {
+  
+		Id: number;
+  
+		PropietarioTarjeta: string;
+  
+		NumeroTarjeta: string;
+  		FechaExpiracion: string;
+  CVV: string;
+
+	}
 
 

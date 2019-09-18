@@ -6,6 +6,7 @@
 	con la Base de Datos.
 3.- Ir a Herramientas >Administrador de Paquetes Nuget y dar clic en la opción Administrar paquetes Nuget para la Solución.
 	a)De clic en Examinar y escriba Microsoft.EntityFrameworkCore, seleccione la ultima versión estable  y de clic en el botón Install.
+	b)De clic en Examinar y escriba Microsoft.AspNetCore.Cors, seleccione la ultima versión estable  y de clic en el botón Install.
 
 4.- Agregue la clase PagoDetalle dentro de la Carpeta y anexe lo siguiente:
 	public class PagoDetalle
@@ -60,15 +61,36 @@
                         
                 });;
             services.AddDbContext<PagosDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PagosConnection")));
+	    //Directiva del mismo origen, impide que un sitio malintencionado lea datos confidenciales. 
+	    services.AddCors();
+        }
+7.- En el archivo Startup.cs en el metodo Configure agregue lo siguiente:
+
+	public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+            //Se agrega que sitios pueden consumir los servicios y metodos que contenga la API
+            app.UseCors(options => options.WithOrigins("http://localhost:4200/"));
+
+            app.UseHttpsRedirection();
+            app.UseMvc();
         }
 
-7.- Ir a Herramientas >Administrador de Paquetes Nuget y de clic en la copción Consola del Administrador de paquetes y ejecute los siguientes
+8.- Ir a Herramientas >Administrador de Paquetes Nuget y de clic en la copción Consola del Administrador de paquetes y ejecute los siguientes
 comandos para hacer la migración de las clases a la Base de Datos.
 
 	Add-Migration "Initial Create"
 
 	Update-Database
-8. De clic derecho sobre la carpeta Controller>Agregar>Controlador y de clic sobre la opción Controlador de API con acciones que usan EntityFramework
+9. De clic derecho sobre la carpeta Controller>Agregar>Controlador y de clic sobre la opción Controlador de API con acciones que usan EntityFramework
 	a)Seleccione la clase PagosDetalle de la carpeta Models
 	b)Seleccione el contexto de datos PagosDBContext
 	c)Escriba como nombre de controlador PagosDetalleController
@@ -168,3 +190,5 @@ comandos para hacer la migración de las clases a la Base de Datos.
             return _context.PagoDetalle.Any(e => e.Id == id);
         }
     }
+
+	
