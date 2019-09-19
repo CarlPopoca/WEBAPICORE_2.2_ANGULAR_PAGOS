@@ -1,53 +1,64 @@
-<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-  <input type="hidden" name="Id" [value]="service.formData.Id"/>
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <div class="input-group-text bg-white">
-          <i class="fas fa-user-circle" [class.green-icon]="PropietarioTarjeta.valid" [class.red-icon]="PropietarioTarjeta.invalid  && PropietarioTarjeta.touched"></i>
+<!--Con el evento onSubmit y que se dispara con el botón se realiza la alta si la variable service.formData.Id es igual a 0 o se
+    realiza la actualización si es diferente de 0-->
+  <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <!--Se ocula el valor del Id con un input de tipo hidden-->
+    <input type="hidden" name="Id" [value]="service.formData.Id" />
+    <!--Se ocupa div con class form-group para agrupar controles-->
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <!--El icono cambia  a verde si el contenido del input PropietarioTarjeta es valido, de lo contrario se pone en rojo.
+      Las estilos green-icon y red-icon están en el archivo principal de styles.cc -->
+            <i class="fas fa-user-circle" [class.green-icon]="PropietarioTarjeta.valid" [class.red-icon]="PropietarioTarjeta.invalid  && PropietarioTarjeta.touched"></i>
+          </div>
         </div>
+        <!-- El atributo ngModel nos perite asociarle al control un atributo de un objeto declarado en el service, recordar que el service es inyectado
+      por dependencia en el constructor -->
+        <!--El atributo required establece un control obligatorio-->
+        <input name="PropietarioTarjeta" #PropietarioTarjeta="ngModel" [(ngModel)]="service.formData.PropietarioTarjeta" class="form-control" placeholder="Propietario" required />
       </div>
-      <input name="PropietarioTarjeta" #PropietarioTarjeta="ngModel" [(ngModel)]="service.formData.PropietarioTarjeta" class="form-control" placeholder="Propietario" required/>
     </div>
-  </div>
 
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <div class="input-group-text bg-white">
-          <i class="far fa-credit-card" [class.green-icon]="NumeroTarjeta.valid" [class.red-icon]="NumeroTarjeta.invalid  && NumeroTarjeta.touched"></i>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="far fa-credit-card" [class.green-icon]="NumeroTarjeta.valid" [class.red-icon]="NumeroTarjeta.invalid  && NumeroTarjeta.touched"></i>
+          </div>
         </div>
+        <!--Los atributos maxlength y minlength nos permiten limitar la captura de caracteres-->
+        <input name="NumeroTarjeta" #NumeroTarjeta="ngModel" [(ngModel)]="service.formData.NumeroTarjeta" class="form-control" placeholder="16 digitos de número de tarjeta"
+               required maxlength="16" minlength="16" />
       </div>
-      <input name="NumeroTarjeta" #NumeroTarjeta="ngModel" [(ngModel)]="service.formData.NumeroTarjeta" class="form-control" placeholder="16 digitos de número de tarjeta"
-             required maxlength="16" minlength="16"/>
     </div>
-  </div>
 
-  <div class="form-row">
-  <div class="form-group col-md-7">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <div class="input-group-text bg-white">
-          <i class="fas fa-calendar-alt" [class.green-icon]="FechaExpiracion.valid" [class.red-icon]="FechaExpiracion.invalid  && FechaExpiracion.touched"></i>
+    <div class="form-row">
+      <div class="form-group col-md-7">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-calendar-alt" [class.green-icon]="FechaExpiracion.valid" [class.red-icon]="FechaExpiracion.invalid  && FechaExpiracion.touched"></i>
+            </div>
+          </div>
+          <input name="FechaExpiracion" #FechaExpiracion="ngModel" [(ngModel)]="service.formData.FechaExpiracion" class="form-control" placeholder="MM/YY" required maxlength="5" minlength="5" />
         </div>
       </div>
-      <input name="FechaExpiracion" #FechaExpiracion="ngModel" [(ngModel)]="service.formData.FechaExpiracion" class="form-control" placeholder="MM/YY"  required maxlength="5" minlength="5"/>
-    </div>
-  </div>
 
-  <div class="form-group col-md-5">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <div class="input-group-text bg-white">
-          <i class="fas fa-key" [class.green-icon]="CVV.valid" [class.red-icon]="CVV.invalid  && CVV.touched"></i>
+      <div class="form-group col-md-5">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-key" [class.green-icon]="CVV.valid" [class.red-icon]="CVV.invalid  && CVV.touched"></i>
+            </div>
+          </div>
+          <input type="password" name="CVV" #CVV="ngModel" [(ngModel)]="service.formData.CVV" class="form-control" placeholder="CVV" required maxlength="3" minlength="3" />
         </div>
       </div>
-      <input type="password" name="CVV" #CVV="ngModel" [(ngModel)]="service.formData.CVV" class="form-control" placeholder="CVV" required maxlength="3" minlength="3" />
-    </div>
-  </div>
     </div>
     <div class="form-group">
+      <!--El atributo disabled no permite desabilitar el botón si los datos del control son invalidos-->
       <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Guardar</button>
     </div>
 
-</form>
+  </form>

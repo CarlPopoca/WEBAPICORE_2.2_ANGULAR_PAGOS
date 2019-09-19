@@ -1,9 +1,11 @@
 <table class="table table-hover">
+  <!-- ngFor nos permite iterar el array de objetos list de PagoDetalle que fue llenado en el service al ejecutar el metodo GetPagosDetalles-->
   <tr *ngFor="let pd of service.list">
     <td (click)="datosForm(pd)">{{pd.PropietarioTarjeta}}</td>
     <td (click)="datosForm(pd)">{{pd.NumeroTarjeta}}</td>
     <td (click)="datosForm(pd)">{{pd.FechaExpiracion}}</td>
     <td>
+      <!--El evento (click) nos permite disparar el metodo onDelete para proceder a eliminar el registro -->
       <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
     </td>
   </tr>

@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              //Se añaden los estilos que se ocuparan en los html para la apariencia de los controles y de las alertas y mensajes
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
