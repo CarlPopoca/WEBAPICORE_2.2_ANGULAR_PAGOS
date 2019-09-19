@@ -1,7 +1,10 @@
 <table class="table table-hover">
   <tr *ngFor="let pd of service.list">
-    <td>{{pd.PropietarioTarjeta}}</td>
-    <td>{{pd.NumeroTarjeta}}</td>
-    <td>{{pd.FechaExpiracion}}</td>
+    <td (click)="datosForm(pd)">{{pd.PropietarioTarjeta}}</td>
+    <td (click)="datosForm(pd)">{{pd.NumeroTarjeta}}</td>
+    <td (click)="datosForm(pd)">{{pd.FechaExpiracion}}</td>
+    <td>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
+    </td>
   </tr>
 </table>
