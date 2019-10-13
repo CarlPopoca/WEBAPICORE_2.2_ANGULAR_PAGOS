@@ -26,19 +26,25 @@ namespace WEBAPICORE_2._2_USUARIOS.Controllers
 
         // POST: api/Usuarios/Ingresar
         [HttpPost]
-        public async Task<ActionResult> Ingresar(string email, LoginViewModel loginViewModel)
+        public async Task<ActionResult<LoginViewModel>> Ingresar(LoginViewModel loginViewModel)
         {
-            var result = await signInManager.PasswordSignInAsync(email, loginViewModel.Password, loginViewModel.RemenberMe, false);
+            var result = await signInManager.PasswordSignInAsync(loginViewModel.Email, loginViewModel.Password, false, false);
             if (!result.Succeeded)
             {
                 return NotFound();
             }
-            return NoContent();
+            return new LoginViewModel
+            {
+                Email = loginViewModel.Email,
+                Password = loginViewModel.Password
+
+            };
+
         }
 
         // POST: api/Usuarios/Registrar
         [HttpPost]
-        public async Task<ActionResult> Registrar(UsuariosViewModel usuariosViewModel)
+        public async Task<ActionResult<UsuariosViewModel>> Registrar(UsuariosViewModel usuariosViewModel)
         {
             var user = new IdentityUser
             {
@@ -51,7 +57,12 @@ namespace WEBAPICORE_2._2_USUARIOS.Controllers
             {
                 return BadRequest();
             }
-            return NoContent();
+            return new UsuariosViewModel
+            {
+                Email = usuariosViewModel.Email,
+                Password = usuariosViewModel.Password,
+                ConfirmPassword = usuariosViewModel.ConfirmPassword
+            };
         }
 
         // POST: api/Usuarios/CerrarSesion
@@ -61,5 +72,5 @@ namespace WEBAPICORE_2._2_USUARIOS.Controllers
             await signInManager.SignOutAsync();
             return NoContent();
         }
-    }
+     }
 }
