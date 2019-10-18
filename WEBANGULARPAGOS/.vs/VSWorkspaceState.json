@@ -3,11 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\nav-menu",
     "\\src\\app\\pago-detalles",
-    "\\src\\app\\pago-detalles\\pago-detalle",
-    "\\src\\app\\pago-detalles\\pago-detalle-lista",
-    "\\src\\app\\shared"
+    "\\src\\app\\seguridad",
+    "\\src\\app\\seguridad\\registrar-usuario",
+    "\\src\\app\\shared",
+    "\\src\\app\\shared\\model",
+    "\\src\\app\\shared\\service"
   ],
-  "SelectedNode": "\\angular.json",
+  "SelectedNode": "\\src\\app\\shared\\model\\ingresar.model.ts",
   "PreviewInSolutionExplorer": false
 }

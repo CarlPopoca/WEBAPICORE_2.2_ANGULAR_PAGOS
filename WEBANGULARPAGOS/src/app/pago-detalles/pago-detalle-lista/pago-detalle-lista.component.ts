@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PagoDetalleService } from '../../shared/pago-detalle.service';
-import { PagoDetalle } from '../../shared/pago-detalle.model';
+import { PagoDetalleService } from '../../shared/service/pago-detalle.service';
+import { PagoDetalle } from '../../shared/model/pago-detalle.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

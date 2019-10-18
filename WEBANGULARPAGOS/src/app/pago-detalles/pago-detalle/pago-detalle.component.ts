@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PagoDetalleService } from '../../shared/pago-detalle.service';
+import { PagoDetalleService } from '../../shared/service/pago-detalle.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
