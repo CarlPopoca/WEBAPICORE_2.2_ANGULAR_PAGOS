@@ -1,53 +1,63 @@
-<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-
-  <!--Se ocupa div con class form-group para agrupar controles-->
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <div class="input-group-text bg-white">
-          <!--El icono cambia  a verde si el contenido del input Email es valido, de lo contrario se pone en rojo.
-            Los estilos green-icon y red-icon están en el archivo principal de styles.cc -->
-          <i class="fas fa-user-circle" [class.green-icon]="Email.valid" [class.red-icon]="Email.invalid  && Email.touched"></i>
-        </div>
-      </div>
-      <!-- El atributo ngModel nos permite asociarle al control un atributo de un objeto declarado en el service, recordar que el service es inyectado
-      por dependencia en el constructor -->
-      <!--El atributo required establece un control obligatorio-->
-      <input name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control" placeholder="Email" required />
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <div class="input-group-text bg-white">
-          <!--El icono cambia  a verde si el contenido del input Password es valido, de lo contrario se pone en rojo.
-            Los estilos green-icon y red-icon están en el archivo principal de styles.cc -->
-          <i class="fas fa-key" [class.green-icon]="Password.valid" [class.red-icon]="Password.invalid  && Password.touched"></i>
-        </div>
-      </div>
-      <!-- El atributo ngModel nos perite asociarle al control un atributo de un objeto declarado en el service, recordar que el service es inyectado
-      por dependencia en el constructor -->
-      <!--El atributo required establece un control obligatorio-->
-      <input name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" class="form-control" placeholder="Password" required
-             maxlength="10" minlength="10" />
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="form-check">
-
-      <input type="checkbox" name="RemenberMe" #RemenberMe="ngModel" [(ngModel)]="service.formData.RemenberMe"
-             class="form-check-input"/>
-      <label htmlFor="RemenberMe" class="form-check-label">Recordar sesión</label>
-
-    </div>
+<div id="container" class="container">
+  <div class="row">
    
-  </div>
+    <div class="col-sm-6 offset-sm-4 text-center">
+      <h1 class="col-sm-7 display-5 my-4">Login</h1>
+      <div class="info-form ">
+        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" class="col-sm-7">
 
-    <div class="form-group">
-      <!--El atributo disabled no permite desabilitar el botón si los datos del control son invalidos-->
-      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+          <!--Se ocupa div con class form-group para agrupar controles-->
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                  <!--El icono cambia  a verde si el contenido del input Email es valido, de lo contrario se pone en rojo.
+                  Los estilos green-icon y red-icon están en el archivo principal de styles.cc -->
+                  <i class="fas fa-user-circle" [class.green-icon]="Email.valid" [class.red-icon]="Email.invalid  && Email.touched"></i>
+                </div>
+              </div>
+              <!-- El atributo ngModel nos permite asociarle al control un atributo de un objeto declarado en el service, recordar que el service es inyectado
+            por dependencia en el constructor -->
+              <!--El atributo required establece un control obligatorio-->
+              <input name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control" placeholder="Email" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                  <!--El icono cambia  a verde si el contenido del input Password es valido, de lo contrario se pone en rojo.
+                  Los estilos green-icon y red-icon están en el archivo principal de styles.cc -->
+                  <i class="fas fa-key" [class.green-icon]="Password.valid" [class.red-icon]="Password.invalid  && Password.touched"></i>
+                </div>
+              </div>
+              <!-- El atributo ngModel nos perite asociarle al control un atributo de un objeto declarado en el service, recordar que el service es inyectado
+            por dependencia en el constructor -->
+              <!--El atributo required establece un control obligatorio-->
+              <input name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" class="form-control" placeholder="Password" required
+                     maxlength="10" minlength="10" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div className="input-group">
+              <div class="input-group-prepend">
+                <div class="form-check">
+                  <input type="checkbox" name="RemenberMe" #RemenberMe="ngModel" [(ngModel)]="service.formData.RemenberMe"
+                         class="form-check-input" />
+                  <label htmlFor="RemenberMe" class="form-check-label">Recordar sesión</label>
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <!--El atributo disabled no permite desabilitar el botón si los datos del control son invalidos-->
+                <button class="btn btn-success" type="submit" [disabled]="form.invalid"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+            </div>
+        </form>
+      </div>
     </div>
-
-</form>
+  </div>
+</div>
