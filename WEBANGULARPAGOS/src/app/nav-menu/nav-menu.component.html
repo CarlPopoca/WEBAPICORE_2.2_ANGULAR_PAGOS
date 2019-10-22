@@ -16,12 +16,12 @@
             <a class="nav-link text-dark" [routerLink]='["/pagodetalles"]'>Pagos</a>
           </li>
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/ingresar"]'>Ingresar</a>
+            <a class="nav-link text-dark" [routerLink]='["/ingresar"]' [hidden]="serviceNavMenu.isShownOptionUser">Ingresar</a>
           </li>
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/registrarusuario"]'>Registrar usuario</a>
+            <a class="nav-link text-dark" [routerLink]='["/registrarusuario"]' [hidden]="serviceNavMenu.isShownOptionUser">Registrar usuario</a>
           </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'  [hidden]="serviceNavMenu.isShownCloseSesion">
             <a class="nav-link text-dark" [routerLink]='["/cerrarsesion"]'>Cerrar sesion</a>
           </li>
         </ul>

@@ -73,7 +73,7 @@ namespace WEBAPICORE_2._2_USUARIOS
                 app.UseHsts();
             }
             //Se agrega que sitios pueden consumir los servicios y metodos que contenga la API
-            app.UseCors(options => options.WithOrigins("http://localhost:4200/")
+            app.UseCors(options => options.WithOrigins("http://localhost:4200")
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 

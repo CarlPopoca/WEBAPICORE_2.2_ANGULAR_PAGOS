@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: [] //Se quita la referencia a Styles.cc para que se agregue esta refrencia al archivo angular.json
 })
 export class AppComponent {
+  isShown = true;
   title = 'WEBANGULARPAGOS';
 }

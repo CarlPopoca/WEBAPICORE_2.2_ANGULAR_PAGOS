@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IngresarService } from '../../shared/service/ingresar.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ingresar',
@@ -9,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class IngresarComponent implements OnInit {
 
-  constructor(private service: IngresarService, private toastr: ToastrService) { }
+  constructor(private service: IngresarService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     //Se ejecuta el metodo resetForm al cargarse el componente
@@ -28,12 +29,7 @@ export class IngresarComponent implements OnInit {
   }
   //Se ingresa al aplicativo
   onSubmit(form: NgForm) {
-
-    if (this.service.formData.Email != '' && this.service.formData.Password !='')
       this.ingresarUsuario(form);
-    else
-      this.toastr.warning('Ingrese las credenciales del Usuario', 'Ingresar');
-   
   }
 
   ingresarUsuario(form: NgForm) {
@@ -43,10 +39,12 @@ export class IngresarComponent implements OnInit {
         //Al ser satisfactoria la transacción reiniciara la forma, lanzara una alerta y actualizara la lista
         this.reiniciarForm(form);
         console.log('Ingreso correcto');
-        
+        localStorage.setItem("token", "jasdajalkcecklwcljekwej");
+        this.router.navigate(['/']);
       },
       err => {
         //Nos proporciona un mensaje en la consola del navegador en caso de error
+        this.toastr.error('Credenciales incorrectas', 'Ingresar');
         console.log(err);
       }
     )

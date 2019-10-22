@@ -19,7 +19,7 @@
               <!-- El atributo ngModel nos permite asociarle al control un atributo de un objeto declarado en el service, recordar que el service es inyectado
             por dependencia en el constructor -->
               <!--El atributo required establece un control obligatorio-->
-              <input name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control" placeholder="Email" required />
+              <input type="email" name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control" placeholder="Email" required />
             </div>
           </div>
 
@@ -36,7 +36,7 @@
             por dependencia en el constructor -->
               <!--El atributo required establece un control obligatorio-->
               <input name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" class="form-control" placeholder="Password" required
-                     maxlength="10" minlength="10" />
+                     maxlength="10" minlength="10"  type="password"/>
             </div>
           </div>
 
