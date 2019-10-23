@@ -8,11 +8,11 @@ import { PagoDetallesService } from './service/pago-detalles.service';
 import { IngresarService } from './service/ingresar.service';
 import { RegistrarUsuarioService } from './service/registrar-usuario.service';
 import { CerrarSesionService } from './service/cerrar-sesion.service';
-import { NavCandeactiveService } from './service/nav-candeactivate-service';
+import { NavCanactivateService } from './service/nav-canactivate-service';
 
 export const rutas: Routes = [
   
-  { path: '', component: HomeComponent, canDeactivate: [NavCandeactiveService], canActivate: [NavCandeactiveService]},
+  { path: '', component: HomeComponent, canActivate: [NavCanactivateService]},
   { path: 'pagodetalles', component: PagoDetallesComponent, canActivate: [PagoDetallesService] },
   { path: 'ingresar', component: IngresarComponent, canActivate: [IngresarService]},
   { path: 'registrarusuario', component: RegistrarUsuarioComponent, canActivate: [RegistrarUsuarioService] },

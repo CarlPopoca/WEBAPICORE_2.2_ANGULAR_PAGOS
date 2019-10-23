@@ -11,7 +11,7 @@ import { IngresarService } from './shared/service/ingresar.service';
 import { CerrarSesionService } from './shared/service/cerrar-sesion.service';
 import { PagoDetallesService } from './shared/service/pago-detalles.service';
 import { NavMenuService } from './shared/service/nav-menu.service';
-import { NavCandeactiveService } from './shared/service/nav-candeactivate-service';
+import { NavCanactivateService } from './shared/service/nav-canactivate-service';
 
 //Se importa modulo para ocupar Forms
 import { FormsModule } from "@angular/forms";
@@ -58,7 +58,7 @@ import { CerrarSesionComponent } from './seguridad/cerrar-sesion/cerrar-sesion.c
     CerrarSesionService,
     PagoDetallesService,
     NavMenuService,
-    NavCandeactiveService
+    NavCanactivateService
   ],
   bootstrap: [AppComponent]
 })

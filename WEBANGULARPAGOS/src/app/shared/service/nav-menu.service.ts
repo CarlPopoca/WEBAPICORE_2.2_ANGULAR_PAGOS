@@ -8,11 +8,10 @@ export class NavMenuService {
   isShownCloseSesion = false;
   isShownOptionUser = false;
   constructor() {
-    this.hideCloseSesion(true);
-    this.hideOptionUser(false);
+
   }
 
-  hideCloseSesion(e) { this.isShownCloseSesion = e; }
-  hideOptionUser(e) { this.isShownOptionUser = e;}
+  showCloseSesion(e) { this.isShownCloseSesion = e; }
+  showOptionUser(e) { this.isShownOptionUser = e;}
  
 }
