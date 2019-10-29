@@ -3,15 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\home",
+    "\\src\\app\\nav-menu",
     "\\src\\app\\pago-detalles",
-    "\\src\\app\\pago-detalles\\pago-detalle",
-    "\\src\\app\\seguridad",
-    "\\src\\app\\seguridad\\cerrar-sesion",
-    "\\src\\app\\seguridad\\ingresar",
+    "\\src\\app\\pago-detalles\\pago-detalle-lista",
     "\\src\\app\\shared",
-    "\\src\\app\\shared\\service"
+    "\\src\\app\\shared\\model",
+    "\\src\\assets",
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\nav-menu\\nav-menu.component.ts",
+  "SelectedNode": "\\src\\app\\pago-detalles\\pago-detalle\\pago-detalle.component.html",
   "PreviewInSolutionExplorer": false
 }
