@@ -40,6 +40,7 @@ export class PagoDetalleComponent implements OnInit {
       this.actualizarPagoDetalle(form);
   }
 
+
   insertarPagoDetalle(form: NgForm) {
 
     this.service.PostPagosDetalle().subscribe(

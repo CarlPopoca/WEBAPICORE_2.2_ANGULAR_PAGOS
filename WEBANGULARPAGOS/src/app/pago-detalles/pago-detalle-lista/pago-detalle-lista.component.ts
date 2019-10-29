@@ -9,9 +9,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: []
 })
 export class PagoDetalleListaComponent implements OnInit {
+  idRegistro = 0;
   //Se inyecta el proveedor de servicios de pagos y el proveedor de servicios de alertas y mensajes
   constructor(private service: PagoDetalleService, private toastr: ToastrService) { }
-
+  
   ngOnInit() {
     //Se obtienen los pagos al cargarse este componente
     this.service.GetPagosDetalles();
@@ -21,13 +22,18 @@ export class PagoDetalleListaComponent implements OnInit {
     //Y se actualizan a su vez los controles de captura porque tambien ocupan el objeto formData
     this.service.formData = Object.assign({},pd);
   }
-  onDelete(id) {
-    if (confirm('Esta seguro de eliminar el registro?')) {
-    this.service.DeletePagosDetalle(id)
+  setearId(id) {
+    this.idRegistro = id;
+  }
+
+  onDelete() {
+    if (this.idRegistro != 0) {
+    this.service.DeletePagosDetalle(this.idRegistro)
       .subscribe(res => {
          //Al ser satisfactoria la transacción reiniciara la forma, lanzara una alerta y actualizara la lista
         this.service.GetPagosDetalles();
         this.toastr.warning('Eliminado satisfactorio', 'Registro de detalle de pagos');
+        this.idRegistro = 0
       },
         err => {
           console.log(err);

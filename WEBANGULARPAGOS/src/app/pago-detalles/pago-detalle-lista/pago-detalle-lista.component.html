@@ -1,3 +1,25 @@
+
+
+  <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Eliminación de detalle de pagos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Esta seguro de eliminar el registro?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary" (click) ="onDelete()"  data-dismiss="modal">Si</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <table class="table table-hover">
   <!-- ngFor nos permite iterar el array de objetos list de PagoDetalle que fue llenado en el service al ejecutar el metodo GetPagosDetalles-->
   <tr *ngFor="let pd of service.list">
@@ -6,7 +28,7 @@
     <td (click)="datosForm(pd)">{{pd.FechaExpiracion}}</td>
     <td>
       <!--El evento (click) nos permite disparar el metodo onDelete para proceder a eliminar el registro -->
-      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
+      <i class="far fa-trash-alt fa-lg text-danger" data-toggle="modal" data-target="#modalMensaje" (click) ="setearId(pd.Id)"></i>
     </td>
   </tr>
 </table>
