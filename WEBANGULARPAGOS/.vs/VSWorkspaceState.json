@@ -3,14 +3,15 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\nav-menu",
+    "\\src\\app\\home",
     "\\src\\app\\pago-detalles",
+    "\\src\\app\\pago-detalles\\pago-detalle",
     "\\src\\app\\seguridad",
-    "\\src\\app\\seguridad\\registrar-usuario",
+    "\\src\\app\\seguridad\\cerrar-sesion",
+    "\\src\\app\\seguridad\\ingresar",
     "\\src\\app\\shared",
-    "\\src\\app\\shared\\model",
     "\\src\\app\\shared\\service"
   ],
-  "SelectedNode": "\\src\\app\\shared\\model\\ingresar.model.ts",
+  "SelectedNode": "\\src\\app\\nav-menu\\nav-menu.component.ts",
   "PreviewInSolutionExplorer": false
 }
