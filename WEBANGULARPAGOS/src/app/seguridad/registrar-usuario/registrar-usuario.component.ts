@@ -11,7 +11,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot,Router } from 
 })
 export class RegistrarUsuarioComponent implements OnInit {
 
-  constructor(private serviceRegistrar: RegistrarUsuarioService, private serviceIngresar: IngresarService, private toastr: ToastrService, private router: Router) { }
+  constructor(public serviceRegistrar: RegistrarUsuarioService, private serviceIngresar: IngresarService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     //Se ejecuta el metodo resetForm al cargarse el componente

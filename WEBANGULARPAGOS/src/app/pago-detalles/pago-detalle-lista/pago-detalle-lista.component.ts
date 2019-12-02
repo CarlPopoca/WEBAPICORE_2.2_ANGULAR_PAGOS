@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class PagoDetalleListaComponent implements OnInit {
   idRegistro = 0;
   //Se inyecta el proveedor de servicios de pagos y el proveedor de servicios de alertas y mensajes
-  constructor(private service: PagoDetalleService, private toastr: ToastrService) { }
+  constructor(public service: PagoDetalleService, private toastr: ToastrService) { }
   
   ngOnInit() {
     //Se obtienen los pagos al cargarse este componente

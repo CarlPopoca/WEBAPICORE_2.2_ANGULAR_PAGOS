@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PagoDetalleComponent implements OnInit {
 
-  constructor(private service: PagoDetalleService, private toastr:ToastrService) {
+  constructor(public service: PagoDetalleService, private toastr:ToastrService) {
   }
 
   ngOnInit() {

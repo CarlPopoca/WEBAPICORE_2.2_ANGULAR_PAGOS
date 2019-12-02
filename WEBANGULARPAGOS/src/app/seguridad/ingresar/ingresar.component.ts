@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class IngresarComponent implements OnInit {
 
-  constructor(private service: IngresarService, private toastr: ToastrService, private router: Router) { }
+  constructor(public service: IngresarService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     //Se ejecuta el metodo resetForm al cargarse el componente
