@@ -1,14 +1,15 @@
-*****Proyecto ASP NET Core con plantilla Angular y que consume una WEB API*****
 
-1.-Crear un proyecto ASP NET Core 2.2 con la plantilla API
+Crear un proyecto ASP NET Core 2.2 con la plantilla API.
 
-2.-Creado el proyecto agregue una carpeta con nombre Models y agregar una Clase con nombre PagosDBContext para sea la clase que nos permitira enlazarlas los Modelos
-	con la Base de Datos.
-3.- Ir a Herramientas >Administrador de Paquetes Nuget y dar clic en la opción Administrar paquetes Nuget para la Solución.
-	a)De clic en Examinar y escriba Microsoft.EntityFrameworkCore, seleccione la ultima versión estable  y de clic en el botón Install.
-	b)De clic en Examinar y escriba Microsoft.AspNetCore.Cors, seleccione la ultima versión estable  y de clic en el botón Install.
+Creado el proyecto agregue una carpeta con nombre Models y agregar una Clase con nombre PagosDBContext para sea la clase que nos permitira enlazarlas los Modelos
+con la Base de Datos.
 
-4.- Agregue la clase PagoDetalle dentro de la Carpeta Models y anexe lo siguiente:
+Ir a Herramientas >Administrador de Paquetes Nuget y dar clic en la opción Administrar paquetes Nuget para la Solución.
+
+	a) De clic en Examinar y escriba Microsoft.EntityFrameworkCore, seleccione la ultima versión estable  y de clic en el botón Install.
+	b) De clic en Examinar y escriba Microsoft.AspNetCore.Cors, seleccione la ultima versión estable  y de clic en el botón Install.
+
+Agregue la clase PagoDetalle dentro de la Carpeta Models y anexe lo siguiente:
 
 	public class PagoDetalle
 	    {
@@ -30,24 +31,23 @@
    	 }
 
 
-5.-Agregue los siguiente a la clase PagosDBContext (Control + . hace que el IDE le proporcione la librería recomendada)
+Agregue los siguiente a la clase PagosDBContext (Control + . hace que el IDE le proporcione la librería recomendada)
 
-    public class PagosDBContext:DbContext
-    {
-        
-        public PagosDBContext(DbContextOptions<PagosDBContext> options) : base(options)
+	public class PagosDBContext:DbContext
         {
+           public PagosDBContext(DbContextOptions<PagosDBContext> options) : base(options)
+           {
+           }
+           public DbSet<PagoDetalle> PagoDetalle { get; set; }
         }
-        public DbSet<PagoDetalle> PagoDetalle { get; set; }
 
-    }
-6.- En el archivo appsettings.json agregue lo siguiente para la cadena de Conexión.
+En el archivo appsettings.json agregue lo siguiente para la cadena de Conexión.
 
-   "ConnectionStrings": {
-    "PagosConnection": "Server=201701839-POAC\\SQLEXPRESS;Database=PagosDB;Trusted_Connection=True;MultipleActiveResultSets=true;"
-  }
+	"ConnectionStrings": {
+	    "PagosConnection": "Server=201701839-POAC\\SQLEXPRESS;Database=PagosDB;Trusted_Connection=True;MultipleActiveResultSets=true;"
+  	}
 
-7.-En el archivo Startup.cs en el metodo ConfigureServices agregue lo siguiente:
+En el archivo Startup.cs en el metodo ConfigureServices agregue lo siguiente:
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -62,12 +62,13 @@
                         (resolver as DefaultContractResolver).NamingStrategy = null;
                     }
                         
-                });;
+                });
             services.AddDbContext<PagosDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PagosConnection")));
 	    //Directiva del mismo origen, impide que un sitio malintencionado lea datos confidenciales. 
 	    services.AddCors();
         }
-8.- En el archivo Startup.cs en el metodo Configure agregue lo siguiente:
+
+En el archivo Startup.cs en el metodo Configure agregue lo siguiente:
 
 	public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -77,123 +78,113 @@
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             //Se agrega que sitios pueden consumir los servicios y metodos que contenga la API
             app.UseCors(options => options.WithOrigins("http://localhost:4200"));
-
             app.UseHttpsRedirection();
             app.UseMvc();
         }
 
-9.- Ir a Herramientas >Administrador de Paquetes Nuget y de clic en la copción Consola del Administrador de paquetes y ejecute los siguientes
+Ir a Herramientas >Administrador de Paquetes Nuget y de clic en la copción Consola del Administrador de paquetes y ejecute los siguientes
 comandos para hacer la migración de las clases a la Base de Datos.
 
 	Add-Migration "Initial Create"
 
 	Update-Database
 
-10. De clic derecho sobre la carpeta Controller>Agregar>Controlador y de clic sobre la opción Controlador de API con acciones que usan EntityFramework
+De clic derecho sobre la carpeta Controller>Agregar>Controlador y de clic sobre la opción Controlador de API con acciones que usan EntityFramework
 
-	a)Seleccione la clase PagosDetalle de la carpeta Models
-	b)Seleccione el contexto de datos PagosDBContext
-	c)Escriba como nombre de controlador PagosDetalleController
+	a) Seleccione la clase PagosDetalle de la carpeta Models
+	b) Seleccione el contexto de datos PagosDBContext
+	c) Escriba como nombre de controlador PagosDetalleController
 
-     El codigo que se generara automaticamente se parecera al siguiente:
+El codigo que se generara automaticamente se parecera al siguiente:
 	
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PagoDetalleController : ControllerBase
-    {
-        private readonly PagosDBContext _context;
+	[Route("api/[controller]")]
+    	[ApiController]
+    	public class PagoDetalleController : ControllerBase
+    	{
+           private readonly PagosDBContext _context;
 
-        public PagoDetalleController(PagosDBContext context)
-        {
-            _context = context;
-        }
+           public PagoDetalleController(PagosDBContext context)
+           {
+               _context = context;
+           }
 
-        // GET: api/PagosDetalle
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<PagoDetalle>>> GetPagosDetalles()
-        {
-            return await _context.PagoDetalle.ToListAsync();
-        }
+           // GET: api/PagosDetalle
+           [HttpGet]
+           public async Task<ActionResult<IEnumerable<PagoDetalle>>> GetPagosDetalles()
+           {  
+              return await _context.PagoDetalle.ToListAsync();
+           }
 
-        // GET: api/PagosDetalle/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<PagoDetalle>> GetPagosDetalle(int id)
-        {
-            var pagosDetalle = await _context.PagoDetalle.FindAsync(id);
+           // GET: api/PagosDetalle/5
+           [HttpGet("{id}")]
+           public async Task<ActionResult<PagoDetalle>> GetPagosDetalle(int id)
+           {
+              var pagosDetalle = await _context.PagoDetalle.FindAsync(id);
+              if (pagosDetalle == null)
+              {
+                 return NotFound();
+              }
+              return pagosDetalle;
+           }
 
-            if (pagosDetalle == null)
-            {
-                return NotFound();
-            }
-
-            return pagosDetalle;
-        }
-
-        // PUT: api/PagosDetalle/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPagosDetalle(int id, PagoDetalle pagosDetalle)
-        {
-            if (id != pagosDetalle.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(pagosDetalle).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PagosDetalleExists(id))
-                {
+           // PUT: api/PagosDetalle/5
+           [HttpPut("{id}")]
+           public async Task<IActionResult> PutPagosDetalle(int id, PagoDetalle pagosDetalle)
+           {
+              if (id != pagosDetalle.Id)
+              {
+                 return BadRequest();
+              }
+              _context.Entry(pagosDetalle).State = EntityState.Modified;
+              try
+              {
+                 await _context.SaveChangesAsync();
+              }
+              catch (DbUpdateConcurrencyException)
+              {
+                 if (!PagosDetalleExists(id))
+                 {
                     return NotFound();
-                }
+                 }
                 else
                 {
                     throw;
                 }
-            }
+              }
+              return NoContent();
+           }
 
-            return NoContent();
-        }
+           // POST: api/PagosDetalle
+           [HttpPost]
+           public async Task<ActionResult<PagoDetalle>> PostPagosDetalle(PagoDetalle pagosDetalle)
+           {
+              _context.PagoDetalle.Add(pagosDetalle);
+              await _context.SaveChangesAsync();
+              return CreatedAtAction("GetPagosDetalle", new { id = pagosDetalle.Id }, pagosDetalle);
+           }
 
-        // POST: api/PagosDetalle
-        [HttpPost]
-        public async Task<ActionResult<PagoDetalle>> PostPagosDetalle(PagoDetalle pagosDetalle)
-        {
-            _context.PagoDetalle.Add(pagosDetalle);
-            await _context.SaveChangesAsync();
+           // DELETE: api/PagosDetalle/5
+           [HttpDelete("{id}")]
+           public async Task<ActionResult<PagoDetalle>> DeletePagosDetalle(int id)
+           {
+              var pagosDetalle = await _context.PagoDetalle.FindAsync(id);
+              if (pagosDetalle == null)
+              {
+                 return NotFound();
+              }
+              _context.PagoDetalle.Remove(pagosDetalle);
+              await _context.SaveChangesAsync();
+              return pagosDetalle;
+           }
 
-            return CreatedAtAction("GetPagosDetalle", new { id = pagosDetalle.Id }, pagosDetalle);
-        }
-
-        // DELETE: api/PagosDetalle/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<PagoDetalle>> DeletePagosDetalle(int id)
-        {
-            var pagosDetalle = await _context.PagoDetalle.FindAsync(id);
-            if (pagosDetalle == null)
-            {
-                return NotFound();
-            }
-
-            _context.PagoDetalle.Remove(pagosDetalle);
-            await _context.SaveChangesAsync();
-
-            return pagosDetalle;
-        }
-
-        private bool PagosDetalleExists(int id)
-        {
-            return _context.PagoDetalle.Any(e => e.Id == id);
-        }
-    }
+           private bool PagosDetalleExists(int id)
+           {
+              return _context.PagoDetalle.Any(e => e.Id == id);
+           }
+	}
 
 	
